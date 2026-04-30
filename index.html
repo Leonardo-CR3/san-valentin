@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background: linear-gradient(135deg, #ff0000, #b30000);
     font-family: Arial, sans-serif;
     overflow: hidden;
 }
@@ -53,11 +53,16 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Corazones */
+.mensaje h2 {
+    color: #b30000;
+}
+
+/* Corazones y girasoles */
 .corazon {
     position: absolute;
-    font-size: 20px;
+    font-size: 25px;
     animation: flotar linear infinite;
+    opacity: 0.8;
 }
 
 @keyframes flotar {
@@ -75,8 +80,8 @@ body {
     <h2>Feliz 1 Mes 💘</h2>
     <p>
         Gracias por este mes tan bonito contigo 🥺💖  
-        Cada momento a tu lado es especial  
-        y quiero seguir viviendo muchos más contigo 😏💘
+        Me haces muy feliz y quiero seguir compartiendo muchos momentos a tu lado 🌻💘  
+        Te amo muchísimo 😏💖
     </p>
 </div>
 
@@ -86,21 +91,25 @@ function abrirCarta() {
     document.getElementById("mensaje").style.display = "block";
 }
 
-// corazones flotando
-function crearCorazon() {
-    const corazon = document.createElement("div");
-    corazon.classList.add("corazon");
-    corazon.innerHTML = "💖";
-    corazon.style.left = Math.random() * 100 + "vw";
-    corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(corazon);
+// corazones y girasoles
+function crearElemento() {
+    const elemento = document.createElement("div");
+    elemento.classList.add("corazon");
+
+    const figuras = ["💖", "🌻"];
+    elemento.innerHTML = figuras[Math.floor(Math.random() * figuras.length)];
+
+    elemento.style.left = Math.random() * 100 + "vw";
+    elemento.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(elemento);
 
     setTimeout(() => {
-        corazon.remove();
+        elemento.remove();
     }, 6000);
 }
 
-setInterval(crearCorazon, 300);
+setInterval(crearElemento, 300);
 </script>
 
 </body>
