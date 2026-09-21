@@ -1,114 +1,81 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>para ti karla con mucho amor  sjjsjs te amoo </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21 de Septiembre 💛</title>
 
-<style>
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #C5A3FF, #C5A3FF);
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Carta */
-.carta {
-    width: 200px;
-    height: 150px;
-    background: white;
-    position: relative;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s;
-}
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #fff8c4, #ffe082, #ffcc70);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-.carta:hover {
-    transform: scale(1.1);
-}
+        /* Brillo del fondo */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: brillo 5s infinite alternate;
+        }
 
-.carta::before {
-    content: "💌";
-    font-size: 50px;
-}
+        @keyframes brillo {
+            from {
+                transform: scale(0.8);
+                opacity: 0.4;
+            }
+            to {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
 
-/* Mensaje oculto */
-.mensaje {
-    position: absolute;
-    width: 80%;
-    max-width: 400px;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    display: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
+        .contenedor {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 45px 30px;
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 20px 50px rgba(150, 100, 0, 0.2);
+            animation: aparecer 1.5s ease;
+        }
 
-.mensaje h2 {
-    color: #b30000;
-}
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
 
-/* Corazones y girasoles */
-.corazon {
-    position: absolute;
-    font-size: 25px;
-    animation: flotar linear infinite;
-    opacity: 0.8;
-}
-
-@keyframes flotar {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-10vh); }
-}
-</style>
-</head>
-
-<body>
-
-<div class="carta" onclick="abrirCarta()"></div>
-
-<div class="mensaje" id="mensaje">
-    <h2>Feliz primer mes corazón 💘</h2>
-    <p>
-        ¨Hay muchos momentos hermosos en la vida pero sin duda el mejor de ellos, fue cuando te conocí. te amo mucho  🌻💘
-    </p>
-</div>
-
-<script>
-function abrirCarta() {
-    document.querySelector(".carta").style.display = "none";
-    document.getElementById("mensaje").style.display = "block";
-}
-
-// corazones y girasoles
-function crearElemento() {
-    const elemento = document.createElement("div");
-    elemento.classList.add("corazon");
-
-    const figuras = ["💖", "🌻"];
-    elemento.innerHTML = figuras[Math.floor(Math.random() * figuras.length)];
-
-    elemento.style.left = Math.random() * 100 + "vw";
-    elemento.style.animationDuration = (Math.random() * 3 + 3) + "s";
-
-    document.body.appendChild(elemento);
-
-    setTimeout(() => {
-        elemento.remove();
-    }, 6000);
-}
-
-setInterval(crearElemento, 300);
-</script>
-
-</body>
-</html>
+        .fecha {
+            font-size: 22px;
+            color: #8a5a00;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+```
